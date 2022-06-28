@@ -5,6 +5,7 @@ export interface BookMarkData {
 	name: string,
 	url: string,
 	reason: string,
+	timestamp: number,
 }
 
 export async function getValue(question: string): Promise<string> {

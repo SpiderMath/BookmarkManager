@@ -17,7 +17,7 @@ async function main() {
 		url = url.trim();
 		if(!isValidURL(url)) return console.log('Invalid URL provided');
 
-		let reason = args.slice(2).join(' ') ?? await getValue('Please enter the reason for which you want to save it(press enter to skip): ');
+		let reason = args[2] ?? await getValue('Please enter the reason for which you want to save it(press enter to skip): ');
 		reason = reason.trim();
 
 		data.push({
@@ -25,6 +25,7 @@ async function main() {
 			name,
 			url,
 			reason,
+			timestamp: Date.now(),
 		});
 
 		writeFileSync(dataPath, JSON.stringify(data, null, "\t"));
